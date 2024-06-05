@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wide Awake</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, #ffecd2, #fcb69f);
+            color: #333;
+        }
+        header {
+            background-color: rgba(255, 255, 255, 0.8);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 10px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2em;
+        }
+        nav {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 10px;
+        }
+        nav a {
+            text-decoration: none;
+            color: #ff7e5f;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+        nav a:hover {
+            color: #d56042;
+        }
+        .container {
+            text-align: center;
+            padding: 50px 20px;
+        }
+        .lyrics {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            background: rgba(255, 255, 255, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.5s ease-in-out;
+        }
+        .image-container img {
+            width: 100%;
+            max-width: 600px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            transition: transform 0.3s;
+        }
+        .image-container img:hover {
+            transform: scale(1.05);
+        }
+        audio {
+            margin-top: 20px;
+        }
+        footer {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 10px;
+            box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            bottom: 0;
+            width: 100%;
+            text-align: center;
+        }
+        footer p {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Website Contains</h1>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#tech">Tech Spotlight</a>
+            <a href="#why">Why Us?</a>
+        </nav>
+    </header>
+    <div class="container">
+        <div id="lyrics" class="lyrics"></div>
+        <div class="image-container">
+            <img src="wideawake.jpg" alt="Inspirational Image">
+        </div>
+        <audio controls autoplay>
+            <source src="wideawake.mp4" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+    </div>
+    <footer>
+        <p>&copy; 2024 Inspirational Quotes. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const lyricsElement = document.getElementById('lyrics');
+        const audioElement = document.querySelector('audio');
+
+        // Lirik lagu dalam bahasa Indonesia
+        const lyrics = [
+            "Aku benar-benar terjaga",
+            "Aku benar-benar terjaga",
+            "Aku benar-benar terjaga",
+            "Yah, dulu aku di dalam kegelapan",
+            "Aku terjatuh dengan keras.",
+            "Kau ada di sana saat aku sedang rendah",
+            "Kau mendukungku dan membiarkanku pergi",
+            "Menjaga kepala tetap tegak, melanjutkan hidup",
+            "Sekarang aku benar-benar terjaga",
+            "Tak kehilangan tidur",
+            "Kukumpulkan setiap potongan dan",
+            "Mendarat dengan baik"
+        ];
+
+        // Menampilkan lirik pada elemen HTML
+        function displayLyrics() {
+            // Hitung indeks lirik berdasarkan waktu audio
+            const time = audioElement.currentTime;
+            let lyricIndex = 0;
+            for (let i = 0; i < lyrics.length; i++) {
+                const lyricDuration = (i + 1) * 5; // Ubah nilai ini sesuai dengan durasi lirik
+                if (time < lyricDuration) {
+                    lyricIndex = i;
+                    break;
+                }
+            }
+            lyricsElement.innerText = lyrics[lyricIndex];
+            // Tambahkan animasi pada lirik yang diperbarui
+            lyricsElement.style.opacity = 0;
+            setTimeout(() => {
+                lyricsElement.style.opacity = 1;
+            }, 100);
+        }
+
+        // Event listener ketika audio diputar
+        audioElement.addEventListener('timeupdate', displayLyrics);
+    </script>
+</body>
+</html>

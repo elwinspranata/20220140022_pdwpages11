@@ -1,0 +1,82 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('your-new-background-image.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: red
+}
+
+header {
+    text-align: center;
+    padding: 20px 0;
+}
+
+h1 {
+    font-size: 3em; /* Mengatur ukuran font judul */
+    margin-bottom: 20px; /* Menambahkan ruang di bawah judul */
+    color: red/* Mengubah warna judul menjadi emas */
+}
+
+nav {
+    margin-top: 10px;
+}
+
+nav a {
+    margin: 0 15px;
+    color: red
+    text-decoration: none;
+    font-size: 1.2em;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+nav a:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    text-align: center;
+}
+
+.lyrics {
+    font-size: 1.2em;
+    margin: 20px 0;
+    line-height: 1.6;
+    color: /* Mengubah warna teks lirik menjadi emas */
+}
+
+.image-container {
+    margin: 20px auto;
+    max-width: 80%; /* Mengurangi lebar maksimum gambar */
+    border-radius: 10px; /* Menambahkan sudut bulat pada gambar */
+    overflow: hidden; /* Mengatur overflow agar gambar tidak keluar dari container */
+}
+
+img {
+    width: 40%; /* Menyesuaikan gambar dengan lebar container */
+    border-radius: 10px;
+    box-shadow: 0 0 20px red /* Menambahkan bayangan gambar */
+}
+
+audio {
+    margin-top: 20px;
+    width: 100%;
+}
+
+footer {
+    text-align: center;
+    margin-top: 50px;
+    font-size: 0.8em;
+    color: black
+    colorfont: white
+}
